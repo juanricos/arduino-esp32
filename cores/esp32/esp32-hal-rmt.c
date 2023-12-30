@@ -438,7 +438,7 @@ bool rmtReceiveCompleted(int pin) {
   return retCode;
 }
 
-bool rmtInit(int pin, rmt_ch_dir_t channel_direction, rmt_reserve_memsize_t mem_size, uint32_t frequency_Hz)
+bool rmtInit(int pin, rmt_ch_dir_t channel_direction, rmt_reserve_memsize_t mem_size, uint32_t frequency_Hz, bool open_drain_mode = 0)
 {
   log_v("GPIO %d - %s - MemSize[%d] - Freq=%dHz", pin, channel_direction == RMT_RX_MODE ? "RX MODE" : "TX MODE", mem_size * RMT_SYMBOLS_PER_CHANNEL_BLOCK, frequency_Hz);
 
@@ -513,7 +513,7 @@ bool rmtInit(int pin, rmt_ch_dir_t channel_direction, rmt_reserve_memsize_t mem_
     tx_cfg.flags.invert_out = 0;
     tx_cfg.flags.with_dma = 0;
     tx_cfg.flags.io_loop_back = 0;
-    tx_cfg.flags.io_od_mode = 0;
+    tx_cfg.flags.io_od_mode = open_drain_mode;
 #if ESP_IDF_VERSION >= ESP_IDF_VERSION_VAL(5, 1, 2)
     tx_cfg.intr_priority = 0;
 #endif
