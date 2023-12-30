@@ -11,7 +11,7 @@ void neopixelWrite(uint8_t pin, uint8_t red_val, uint8_t green_val, uint8_t blue
 #ifdef RGB_BUILTIN
   pin = pin == RGB_BUILTIN ? pin - SOC_GPIO_PIN_COUNT : pin;
 #endif
-  if (!rmtInit(pin, RMT_TX_MODE, RMT_MEM_NUM_BLOCKS_1, 10000000)) {
+  if (!rmtInit(pin, RMT_TX_MODE, RMT_MEM_NUM_BLOCKS_1, 10000000, 0)) {
     log_e("RGB LED driver initialization failed for GPIO%d!", pin);
     return;
   }
