@@ -438,7 +438,7 @@ bool rmtReceiveCompleted(int pin) {
   return retCode;
 }
 
-bool rmtInit(int pin, rmt_ch_dir_t channel_direction, rmt_reserve_memsize_t mem_size, uint32_t frequency_Hz, bool open_drain_mode = 0)
+bool rmtInit(int pin, rmt_ch_dir_t channel_direction, rmt_reserve_memsize_t mem_size, uint32_t frequency_Hz, bool open_drain_mode)
 {
   log_v("GPIO %d - %s - MemSize[%d] - Freq=%dHz", pin, channel_direction == RMT_RX_MODE ? "RX MODE" : "TX MODE", mem_size * RMT_SYMBOLS_PER_CHANNEL_BLOCK, frequency_Hz);
 
