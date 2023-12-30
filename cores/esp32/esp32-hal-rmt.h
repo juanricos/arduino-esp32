@@ -74,7 +74,7 @@ typedef union {
     frequency of the RMT channel. Example: 100ns tick => 10MHz, thus frequency will be 10,000,000 Hz
     Returns <true> on execution success, <false> otherwise
 */
-bool rmtInit(int pin, rmt_ch_dir_t channel_direction, rmt_reserve_memsize_t memsize, uint32_t frequency_Hz, open_drain_mode = 0);
+bool rmtInit(int pin, rmt_ch_dir_t channel_direction, rmt_reserve_memsize_t memsize, uint32_t frequency_Hz, bool open_drain_mode = 0);
 
 /**
      Sending data in Blocking Mode. 
